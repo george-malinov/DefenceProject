@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace CarsPlatform.Data.Migrations
+﻿namespace CarsPlatform.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class AddCarCategoryAndImageModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -8,23 +8,15 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<style>
-    body {
-        background: #00ffff;
-    }
-</style>
 <br />
-
-<div class="card bg-primary text-white w-50 col-md-4 offset-md-4">
+<div class="card bg-transparent text-black-50 w-50 col-md-4 offset-md-4">
     <h3 class="card-title text-center">
         <a><span class="hours"></span></a> :
         <a><span class="min"></span></a> :
         <a><span class="sec"></span></a>
-        <a><span class="text-sm-center" > - @DateTime.UtcNow.Year year.</span></a>
+        <a><span class="text-sm-center"> - @DateTime.UtcNow.Year year.</span></a>
     </h3>
 </div>
-
-
 
 <script>
     $(document).ready(function () {

@@ -13,6 +13,11 @@
             return this.View();
         }
 
+        public IActionResult News()
+        {
+            return this.Redirect("https://www.autocar.co.uk/car-news");
+        }
+
         public IActionResult Privacy()
         {
             return this.View();

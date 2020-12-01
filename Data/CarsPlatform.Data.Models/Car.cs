@@ -14,11 +14,17 @@
 
         public string Model { get; set; }
 
+        public int Prize { get; set; }
+
         public EngineType EngineType { get; set; }
 
         public int Power { get; set; }
 
         public TransmissionType TransmissionType { get; set; }
+
+        public int LocationId { get; set; }
+
+        public Location Location { get; set; }
 
         public int CategoryId { get; set; }
 

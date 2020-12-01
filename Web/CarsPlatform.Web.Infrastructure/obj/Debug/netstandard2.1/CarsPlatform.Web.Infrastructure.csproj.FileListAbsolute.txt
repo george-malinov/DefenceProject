@@ -1,7 +1,6 @@
 C:\Users\georg\Desktop\Project\Web\CarsPlatform.Web.Infrastructure\bin\Debug\netstandard2.1\CarsPlatform.Web.Infrastructure.deps.json
 C:\Users\georg\Desktop\Project\Web\CarsPlatform.Web.Infrastructure\bin\Debug\netstandard2.1\CarsPlatform.Web.Infrastructure.dll
 C:\Users\georg\Desktop\Project\Web\CarsPlatform.Web.Infrastructure\bin\Debug\netstandard2.1\CarsPlatform.Web.Infrastructure.pdb
-C:\Users\georg\Desktop\Project\Web\CarsPlatform.Web.Infrastructure\obj\Debug\netstandard2.1\CarsPlatform.Web.Infrastructure.csprojAssemblyReference.cache
 C:\Users\georg\Desktop\Project\Web\CarsPlatform.Web.Infrastructure\obj\Debug\netstandard2.1\CarsPlatform.Web.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\georg\Desktop\Project\Web\CarsPlatform.Web.Infrastructure\obj\Debug\netstandard2.1\CarsPlatform.Web.Infrastructure.AssemblyInfo.cs
 C:\Users\georg\Desktop\Project\Web\CarsPlatform.Web.Infrastructure\obj\Debug\netstandard2.1\CarsPlatform.Web.Infrastructure.csproj.CoreCompileInputs.cache

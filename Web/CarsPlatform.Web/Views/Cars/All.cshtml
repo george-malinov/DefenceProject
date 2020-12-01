@@ -1,0 +1,25 @@
+﻿@model CarsPlatform.Web.ViewModels.Cars.CarsListViewModel
+
+@{
+    this.ViewData["Title"] = "All cars";
+}
+
+<h1 class="text-center text-white">@this.ViewData["Title"]</h1>
+<hr style="background-color:aliceblue" />
+<div class="row">
+    @foreach (var car in this.Model.Cars)
+    {
+
+        <div class="media col-md-4">
+            <img src="@car.ImageUrl" width="200" class="mr-3 img-responsive">
+            <div class="media-body">
+                <h5> @car.Model </h5>
+                <p class="text-white">@car.Prize лв.</p>
+                <p class="text-white">@car.Miles км.</p>
+                <p class="text-white">@car.LocationTown</p>
+            </div>
+        </div>
+    }
+</div>
+<hr style="background-color:aliceblue" />
+<partial name="_PagingPartial" model="@Model" />

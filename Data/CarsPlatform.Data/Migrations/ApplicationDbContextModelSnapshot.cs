@@ -167,6 +167,9 @@ namespace CarsPlatform.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Miles")
                         .HasColumnType("int");
 
@@ -179,6 +182,9 @@ namespace CarsPlatform.Data.Migrations
                     b.Property<int>("Power")
                         .HasColumnType("int");
 
+                    b.Property<int>("Prize")
+                        .HasColumnType("int");
+
                     b.Property<int>("TransmissionType")
                         .HasColumnType("int");
 
@@ -189,6 +195,8 @@ namespace CarsPlatform.Data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("IsDeleted");
+
+                    b.HasIndex("LocationId");
 
                     b.ToTable("Cars");
                 });
@@ -244,6 +252,24 @@ namespace CarsPlatform.Data.Migrations
                     b.HasIndex("CarId");
 
                     b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("CarsPlatform.Data.Models.Location", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Region")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Town")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("CarsPlatform.Data.Models.Setting", b =>
@@ -391,6 +417,12 @@ namespace CarsPlatform.Data.Migrations
                     b.HasOne("CarsPlatform.Data.Models.Category", "Category")
                         .WithMany("Cars")
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CarsPlatform.Data.Models.Location", "Location")
+                        .WithMany("Cars")
+                        .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
