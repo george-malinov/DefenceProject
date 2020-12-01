@@ -1,0 +1,16 @@
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Services.Data.deps.json
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Services.Data.dll
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Services.Data.pdb
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Data.Common.dll
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Data.Models.dll
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Services.Mapping.dll
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Data.Common.pdb
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Data.Models.pdb
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\bin\Debug\netstandard2.1\CarsPlatform.Services.Mapping.pdb
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\obj\Debug\netstandard2.1\CarsPlatform.Services.Data.csprojAssemblyReference.cache
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\obj\Debug\netstandard2.1\CarsPlatform.Services.Data.AssemblyInfoInputs.cache
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\obj\Debug\netstandard2.1\CarsPlatform.Services.Data.AssemblyInfo.cs
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\obj\Debug\netstandard2.1\CarsPlatform.Services.Data.csproj.CoreCompileInputs.cache
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\obj\Debug\netstandard2.1\CarsPlatform.Services.Data.csproj.CopyComplete
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\obj\Debug\netstandard2.1\CarsPlatform.Services.Data.dll
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Data\obj\Debug\netstandard2.1\CarsPlatform.Services.Data.pdb

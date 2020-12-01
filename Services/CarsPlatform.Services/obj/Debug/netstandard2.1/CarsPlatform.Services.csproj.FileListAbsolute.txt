@@ -1,0 +1,9 @@
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\bin\Debug\netstandard2.1\CarsPlatform.Services.deps.json
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\bin\Debug\netstandard2.1\CarsPlatform.Services.dll
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\bin\Debug\netstandard2.1\CarsPlatform.Services.pdb
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\obj\Debug\netstandard2.1\CarsPlatform.Services.csprojAssemblyReference.cache
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\obj\Debug\netstandard2.1\CarsPlatform.Services.AssemblyInfoInputs.cache
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\obj\Debug\netstandard2.1\CarsPlatform.Services.AssemblyInfo.cs
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\obj\Debug\netstandard2.1\CarsPlatform.Services.csproj.CoreCompileInputs.cache
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\obj\Debug\netstandard2.1\CarsPlatform.Services.dll
+C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services\obj\Debug\netstandard2.1\CarsPlatform.Services.pdb

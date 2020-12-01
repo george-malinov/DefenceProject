@@ -1,0 +1,44 @@
+﻿@using CarsPlatform.Common
+@{
+    this.ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style>
+    body {
+        background: #00ffff;
+    }
+</style>
+<br />
+
+<div class="card bg-primary text-white w-50 col-md-4 offset-md-4">
+    <h3 class="card-title text-center">
+        <a><span class="hours"></span></a> :
+        <a><span class="min"></span></a> :
+        <a><span class="sec"></span></a>
+        <a><span class="text-sm-center" > - @DateTime.UtcNow.Year year.</span></a>
+    </h3>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+            var hours = new Date().getHours();
+            $(".hours").html((hours < 10 ? "0" : "") + hours);
+        }, 1000);
+        setInterval(function () {
+            var minutes = new Date().getMinutes();
+            $(".min").html((minutes < 10 ? "0" : "") + minutes);
+        }, 1000);
+        setInterval(function () {
+            var seconds = new Date().getSeconds();
+            $(".sec").html((seconds < 10 ? "0" : "") + seconds);
+        }, 1000);
+    });
+</script>
