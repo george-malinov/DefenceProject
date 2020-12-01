@@ -1,8 +1,0 @@
-C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Mapping\bin\Debug\netstandard2.1\CarsPlatform.Services.Mapping.deps.json
-C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Mapping\bin\Debug\netstandard2.1\CarsPlatform.Services.Mapping.dll
-C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Mapping\bin\Debug\netstandard2.1\CarsPlatform.Services.Mapping.pdb
-C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Mapping\obj\Debug\netstandard2.1\CarsPlatform.Services.Mapping.AssemblyInfoInputs.cache
-C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Mapping\obj\Debug\netstandard2.1\CarsPlatform.Services.Mapping.AssemblyInfo.cs
-C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Mapping\obj\Debug\netstandard2.1\CarsPlatform.Services.Mapping.csproj.CoreCompileInputs.cache
-C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Mapping\obj\Debug\netstandard2.1\CarsPlatform.Services.Mapping.dll
-C:\Users\georg\Desktop\Project\Services\CarsPlatform.Services.Mapping\obj\Debug\netstandard2.1\CarsPlatform.Services.Mapping.pdb

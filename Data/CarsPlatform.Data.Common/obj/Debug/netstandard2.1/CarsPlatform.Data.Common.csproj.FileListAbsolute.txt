@@ -1,8 +1,0 @@
-C:\Users\georg\Desktop\Project\Data\CarsPlatform.Data.Common\bin\Debug\netstandard2.1\CarsPlatform.Data.Common.deps.json
-C:\Users\georg\Desktop\Project\Data\CarsPlatform.Data.Common\bin\Debug\netstandard2.1\CarsPlatform.Data.Common.dll
-C:\Users\georg\Desktop\Project\Data\CarsPlatform.Data.Common\bin\Debug\netstandard2.1\CarsPlatform.Data.Common.pdb
-C:\Users\georg\Desktop\Project\Data\CarsPlatform.Data.Common\obj\Debug\netstandard2.1\CarsPlatform.Data.Common.AssemblyInfoInputs.cache
-C:\Users\georg\Desktop\Project\Data\CarsPlatform.Data.Common\obj\Debug\netstandard2.1\CarsPlatform.Data.Common.AssemblyInfo.cs
-C:\Users\georg\Desktop\Project\Data\CarsPlatform.Data.Common\obj\Debug\netstandard2.1\CarsPlatform.Data.Common.csproj.CoreCompileInputs.cache
-C:\Users\georg\Desktop\Project\Data\CarsPlatform.Data.Common\obj\Debug\netstandard2.1\CarsPlatform.Data.Common.dll
-C:\Users\georg\Desktop\Project\Data\CarsPlatform.Data.Common\obj\Debug\netstandard2.1\CarsPlatform.Data.Common.pdb
