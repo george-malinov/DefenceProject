@@ -9,6 +9,7 @@
 
     public class CarsService : ICarsService
     {
+        private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Car> carRepository;
 
         public CarsService(IDeletableEntityRepository<Car> carRepository)
