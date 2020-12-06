@@ -15,7 +15,7 @@
 
         public IActionResult News()
         {
-            return this.Redirect("https://www.autocar.co.uk/car-news");
+            return this.Redirect("https://www.auto-data.net/bg/");
         }
 
         public IActionResult Privacy()

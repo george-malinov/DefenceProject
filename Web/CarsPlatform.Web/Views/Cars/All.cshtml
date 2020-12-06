@@ -11,7 +11,14 @@
     {
 
         <div class="media col-md-4">
+            @if (car.ImageUrl == null)
+            {
+                <img src="~/images/default-car.png" width="200" class="mr-3 img-responsive" />
+            }
+            else 
+            {
             <img src="@car.ImageUrl" width="200" class="mr-3 img-responsive">
+            }
             <div class="media-body">
                 <h5> @car.Model </h5>
                 <p class="text-white">@car.Prize лв.</p>

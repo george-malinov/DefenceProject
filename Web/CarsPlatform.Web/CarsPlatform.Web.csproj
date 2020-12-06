@@ -36,4 +36,8 @@
     <ProjectReference Include="..\CarsPlatform.Web.Infrastructure\CarsPlatform.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\CarsPlatform.Web.ViewModels\CarsPlatform.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
 </Project>
