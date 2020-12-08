@@ -1,7 +1,7 @@
 ﻿@model CarsPlatform.Web.ViewModels.Cars.CarsListViewModel
 
 @{
-    this.ViewData["Title"] = "All cars";
+    this.ViewData["Title"] = "All cars - " + @Model.CarsCount;
 }
 
 <h1 class="text-center text-white">@this.ViewData["Title"]</h1>
@@ -15,14 +15,14 @@
             {
                 <img src="~/images/default-car.png" width="200" class="mr-3 img-responsive" />
             }
-            else 
+            else
             {
-            <img src="@car.ImageUrl" width="200" class="mr-3 img-responsive">
+                <img src="@car.ImageUrl" width="200" class="mr-3 img-responsive">
             }
             <div class="media-body">
-                <h5> @car.Model </h5>
-                <p class="text-white">@car.Prize лв.</p>
-                <p class="text-white">@car.Miles км.</p>
+                <h5> <a class="text-warning" asp-action="SingleCar" asp-route-id="@car.Id">@car.Model</a></h5>
+                <p class="text-white">@car.Prize BGN.</p>
+                <p class="text-white">@car.Miles miles.</p>
                 <p class="text-white">@car.LocationTown</p>
             </div>
         </div>

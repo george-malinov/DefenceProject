@@ -15,13 +15,13 @@ public class CategoriesSeeder : ISeeder
             return;
         }
 
-        await dbContext.Categories.AddAsync(new Category { Name = "Седан" });
-        await dbContext.Categories.AddAsync(new Category { Name = "Хечбек" });
-        await dbContext.Categories.AddAsync(new Category { Name = "Комби" });
-        await dbContext.Categories.AddAsync(new Category { Name = "Кабриолет" });
-        await dbContext.Categories.AddAsync(new Category { Name = "Лимузина" });
-        await dbContext.Categories.AddAsync(new Category { Name = "Кросоувър" });
-        await dbContext.Categories.AddAsync(new Category { Name = "Купе" });
+        await dbContext.Categories.AddAsync(new Category { Name = "Sedan" });
+        await dbContext.Categories.AddAsync(new Category { Name = "Hatchback" });
+        await dbContext.Categories.AddAsync(new Category { Name = "Station Wagon" });
+        await dbContext.Categories.AddAsync(new Category { Name = "Cabriolet" });
+        await dbContext.Categories.AddAsync(new Category { Name = "Limousine" });
+        await dbContext.Categories.AddAsync(new Category { Name = "CUV" });
+        await dbContext.Categories.AddAsync(new Category { Name = "Coupe" });
 
         await dbContext.SaveChangesAsync();
     }

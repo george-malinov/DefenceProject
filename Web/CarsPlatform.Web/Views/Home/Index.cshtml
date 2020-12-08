@@ -8,8 +8,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <br />
-<div class="card bg-transparent text-white w-50 col-md-4 offset-md-4">
-    <h2 class="card-title text-center">
+<div class="bg-transparent text-white w-50 col-md-4 offset-md-4">
+    <h2 class="text-center">
         <a><span class="hours"></span></a> :
         <a><span class="min"></span></a> :
         <a><span class="sec"></span></a>
@@ -20,8 +20,10 @@
 
 <div class=" border-top text-white">
     <h3 class="text-center text-white text-monospace">You want to buy a car ?</h3>
-    <h2>
-        <a class="text-center nav-link text-warning" asp-area="" asp-controller="Cars" asp-action="All">Chose now from our list!</a>
+    <br />
+    <h2 class="text-center">
+        <a>Chose now from our list!</a>
+        <a class="btn btn-warning" asp-area="" asp-controller="Cars" asp-action="All">Cars</a>
     </h2>
 </div>
 
@@ -41,3 +43,4 @@
         }, 1000);
     });
 </script>
+

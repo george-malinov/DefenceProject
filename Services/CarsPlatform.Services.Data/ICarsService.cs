@@ -8,5 +8,6 @@
 
         int GetCount();
 
+        T GetCarById<T>(int id);
     }
 }

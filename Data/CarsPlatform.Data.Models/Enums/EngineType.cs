@@ -4,6 +4,6 @@
     {
         Petrol = 1,
         Diesel = 2,
-        Electrical = 3,
+        Hybrid = 3,
     }
 }

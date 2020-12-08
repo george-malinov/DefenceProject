@@ -149,6 +149,9 @@ namespace CarsPlatform.Data.Migrations
                     b.Property<string>("AddedByUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("AditionalInformation")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -156,6 +159,9 @@ namespace CarsPlatform.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfManufacture")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedOn")

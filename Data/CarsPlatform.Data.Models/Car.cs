@@ -1,5 +1,6 @@
 ﻿namespace CarsPlatform.Data.Models
 {
+    using System;
     using System.Collections.Generic;
 
     using CarsPlatform.Data.Common.Models;
@@ -13,6 +14,8 @@
         }
 
         public string Model { get; set; }
+
+        public DateTime DateOfManufacture { get; set; }
 
         public int Prize { get; set; }
 
@@ -33,6 +36,8 @@
         public int Miles { get; set; }
 
         public string Collor { get; set; }
+
+        public string AditionalInformation { get; set; }
 
         public string AddedByUserId { get; set; }
 

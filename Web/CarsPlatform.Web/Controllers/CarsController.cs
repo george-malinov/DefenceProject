@@ -32,5 +32,11 @@
 
             return this.View(viewModel);
         }
+
+        public IActionResult SingleCar(int id)
+        {
+            var car = this.carsService.GetCarById<SingleCarViewModel>(id);
+            return this.View(car);
+        }
     }
 }
