@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace CarsPlatform.Data.Migrations
+﻿namespace CarsPlatform.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class AddLocationEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,7 @@ namespace CarsPlatform.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Region = table.Column<string>(nullable: true),
-                    Town = table.Column<string>(nullable: true)
+                    Town = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
