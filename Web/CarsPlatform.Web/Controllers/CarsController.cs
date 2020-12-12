@@ -1,11 +1,14 @@
 ﻿namespace CarsPlatform.Web.Controllers
 {
     using System;
+    using System.Collections.Generic;
+    using System.IO;
     using System.Threading.Tasks;
-
+    using CarsPlatform.Data.Common.Repositories;
     using CarsPlatform.Data.Models;
     using CarsPlatform.Services.Data;
     using CarsPlatform.Web.ViewModels.Cars;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -16,17 +19,20 @@
         private readonly ICategoriesService categoriesService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IWebHostEnvironment environment;
+        private readonly IRepository<Image> imageRepository;
 
         public CarsController(
             ICarsService carsService,
             ICategoriesService categoriesService,
             UserManager<ApplicationUser> userManager,
-            IWebHostEnvironment environment)
+            IWebHostEnvironment environment,
+            IRepository<Image> imageRepository)
         {
             this.carsService = carsService;
             this.categoriesService = categoriesService;
             this.userManager = userManager;
             this.environment = environment;
+            this.imageRepository = imageRepository;
         }
 
         public IActionResult All(int id = 1)
@@ -49,6 +55,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         public IActionResult CreateCar()
         {
             var viewModel = new CreateCarInputModel();
@@ -56,6 +63,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateCar(CreateCarInputModel input)
         {
@@ -78,12 +86,26 @@
                 return this.View(input);
             }
 
-            return this.Redirect("/");
+            return this.Redirect("/Cars/All");
         }
 
         public IActionResult SingleCar(int id)
         {
             var car = this.carsService.GetCarById<SingleCarViewModel>(id);
+            var imageUrls = this.imageRepository.AllAsNoTracking();
+            List<string> imgeUrls = new List<string>();
+
+            foreach (var image in imageUrls)
+            {
+                if (image.CarId == id)
+                {
+                    var physicalPath = $"/images/cars/{image.Id}.{image.Extention}";
+                    imgeUrls.Add(physicalPath);
+                }
+            }
+
+            car.ImageUrls = new List<string>(imgeUrls);
+
             return this.View(car);
         }
     }

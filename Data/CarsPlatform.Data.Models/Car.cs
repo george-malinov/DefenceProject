@@ -27,7 +27,7 @@
 
         public int LocationId { get; set; }
 
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
 
         public int CategoryId { get; set; }
 

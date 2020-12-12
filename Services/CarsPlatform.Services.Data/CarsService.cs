@@ -16,11 +16,17 @@
     {
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Car> carRepository;
+        private readonly IRepository<Location> locationRepository;
+        private readonly IRepository<Image> imageRepository;
 
         public CarsService(
-            IDeletableEntityRepository<Car> carRepository)
+            IDeletableEntityRepository<Car> carRepository,
+            IRepository<Location> locationRepository,
+            IRepository<Image> imageRepository)
         {
             this.carRepository = carRepository;
+            this.locationRepository = locationRepository;
+            this.imageRepository = imageRepository;
         }
 
         public IEnumerable<T> All<T>(int page, int itemsPerPage = 10)
@@ -43,20 +49,24 @@
                 Power = input.Power,
                 Miles = input.Miles,
                 Collor = input.Color,
+                EngineType = input.EngineTypes,
+                TransmissionType = input.TransmissionTypes,
                 AditionalInformation = input.AditionalInformation,
                 AddedByUserId = userId,
                 CategoryId = input.CategoryId,
             };
 
-            foreach (var engine in input.EngineTypes)
+            var location = this.locationRepository.All().FirstOrDefault(x => x.Region == input.Location.Region && x.Town == input.Location.Town);
+            if (location == null)
             {
-                car.EngineType = engine;
+                location = new Location
+                {
+                    Region = input.Location.Region,
+                    Town = input.Location.Town,
+                };
             }
 
-            foreach (var transmission in input.TransmissionTypes)
-            {
-                car.TransmissionType = transmission;
-            }
+            car.Location = location;
 
             Directory.CreateDirectory($"{imagePath}/cars/");
             foreach (var image in input.Images)

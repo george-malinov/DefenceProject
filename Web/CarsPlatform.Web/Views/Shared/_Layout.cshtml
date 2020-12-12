@@ -1,7 +1,7 @@
 ﻿@using CarsPlatform.Common
 <style>
     body {
-        background-image: url("https://www.bigboytoyz.com/theme/BBT/img/gurgaon/home/08.jpg");         
+        background-image: url("https://www.bigboytoyz.com/theme/BBT/img/gurgaon/home/08.jpg");
     }
 </style>
 <!DOCTYPE html>
@@ -26,10 +26,15 @@
                         <li class="nav-item" style="margin-right:10px">
                             <a class="btn btn-warning" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-
-                        <li class="nav-item">
+                        <li class="nav-item" style="margin-right:10px">
                             <a target="_blank" class="btn btn-warning" asp-area="" asp-controller="Home" asp-action="News">News</a>
                         </li>
+                        @if (this.User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-warning" asp-area="" asp-controller="Cars" asp-action="CreateCar">Add new car</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
