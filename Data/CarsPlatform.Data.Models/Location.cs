@@ -2,14 +2,14 @@
 {
     using System.Collections.Generic;
 
-    public class Location
+    using CarsPlatform.Data.Common.Models;
+
+    public class Location : BaseModel<int>
     {
         public Location()
         {
             this.Cars = new HashSet<Car>();
         }
-
-        public int Id { get; set; }
 
         public string Region { get; set; }
 

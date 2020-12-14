@@ -17,16 +17,13 @@
         private readonly string[] allowedExtensions = new[] { "jpg", "png", "gif" };
         private readonly IDeletableEntityRepository<Car> carRepository;
         private readonly IRepository<Location> locationRepository;
-        private readonly IRepository<Image> imageRepository;
 
         public CarsService(
             IDeletableEntityRepository<Car> carRepository,
-            IRepository<Location> locationRepository,
-            IRepository<Image> imageRepository)
+            IRepository<Location> locationRepository)
         {
             this.carRepository = carRepository;
             this.locationRepository = locationRepository;
-            this.imageRepository = imageRepository;
         }
 
         public IEnumerable<T> All<T>(int page, int itemsPerPage = 10)
@@ -105,6 +102,29 @@
         public int GetCount()
         {
             return this.carRepository.All().Count();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var car = this.carRepository.All().FirstOrDefault(x => x.Id == id);
+            this.carRepository.Delete(car);
+            await this.carRepository.SaveChangesAsync();
+        }
+
+        public async Task EditCarAsync(int id, EditCarInputModel input)
+        {
+            var car = this.carRepository.All().FirstOrDefault(x => x.Id == id);
+            car.Model = input.Model;
+            car.DateOfManufacture = input.DateOfManufacture;
+            car.Prize = input.Prize;
+            car.Power = input.Power;
+            car.Miles = input.Miles;
+            car.Collor = input.Collor;
+            car.EngineType = input.EngineTypes;
+            car.TransmissionType = input.TransmissionTypes;
+            car.AditionalInformation = input.AditionalInformation;
+            car.CategoryId = input.CategoryId;
+            await this.carRepository.SaveChangesAsync();
         }
     }
 }

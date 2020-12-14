@@ -14,5 +14,9 @@
         T GetCarById<T>(int id);
 
         Task CreateAsync(CreateCarInputModel input, string userId, string imagePath);
+
+        Task DeleteAsync(int id);
+
+        Task EditCarAsync(int id, EditCarInputModel input);
     }
 }

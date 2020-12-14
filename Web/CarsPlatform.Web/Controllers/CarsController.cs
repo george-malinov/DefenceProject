@@ -2,8 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Threading.Tasks;
+
     using CarsPlatform.Data.Common.Repositories;
     using CarsPlatform.Data.Models;
     using CarsPlatform.Services.Data;
@@ -86,7 +86,9 @@
                 return this.View(input);
             }
 
-            return this.Redirect("/Cars/All");
+            this.TempData["Message"] = "Car added successfully.";
+
+            return this.RedirectToAction(nameof(this.All));
         }
 
         public IActionResult SingleCar(int id)
@@ -107,6 +109,36 @@
             car.ImageUrls = new List<string>(imgeUrls);
 
             return this.View(car);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> DeleteCar(int id)
+        {
+            await this.carsService.DeleteAsync(id);
+            return this.RedirectToAction(nameof(this.All));
+        }
+
+        [Authorize]
+        public IActionResult EditCar(int id)
+        {
+            var carInputModel = this.carsService.GetCarById<EditCarInputModel>(id);
+            carInputModel.Categories = this.categoriesService.AllCategories();
+            return this.View(carInputModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> EditCar(int id, EditCarInputModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                input.Categories = this.categoriesService.AllCategories();
+                return this.View(input);
+            }
+
+            await this.carsService.EditCarAsync(id, input);
+            return this.RedirectToAction(nameof(this.SingleCar), new { id });
         }
     }
 }
