@@ -35,26 +35,6 @@
             this.imageRepository = imageRepository;
         }
 
-        public IActionResult All(int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            const int ItemsPerPage = 10;
-
-            var viewModel = new CarsListViewModel
-            {
-                ItemsPerPage = ItemsPerPage,
-                PageNumber = id,
-                CarsCount = this.carsService.GetCount(),
-                Cars = this.carsService.All<CarsInListViewModel>(id, ItemsPerPage),
-            };
-
-            return this.View(viewModel);
-        }
-
         [Authorize]
         public IActionResult CreateCar()
         {
@@ -148,7 +128,7 @@
                 return this.NotFound();
             }
 
-            const int ItemsPerPage = 10;
+            const int ItemsPerPage = 6;
 
             var username = this.userManager.GetUserName(this.User);
 
@@ -156,7 +136,28 @@
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
-                Cars = this.carsService.GetUserCars<CarsInListViewModel>(username, id, ItemsPerPage),
+                CarsCount = this.carsService.GetCount(),
+                Cars = this.carsService.GetUserCars<MyCarsInListViewModel>(username, id, ItemsPerPage),
+            };
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult All(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int ItemsPerPage = 6;
+
+            var viewModel = new CarsListViewModel
+            {
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                CarsCount = this.carsService.GetCount(),
+                Cars = this.carsService.All<CarsInListViewModel>(id, ItemsPerPage),
             };
 
             return this.View(viewModel);

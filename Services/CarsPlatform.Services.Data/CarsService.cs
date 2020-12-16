@@ -8,7 +8,6 @@
 
     using CarsPlatform.Data.Common.Repositories;
     using CarsPlatform.Data.Models;
-    using CarsPlatform.Data.Models.Enums;
     using CarsPlatform.Services.Mapping;
     using CarsPlatform.Web.ViewModels.Cars;
 
@@ -24,16 +23,6 @@
         {
             this.carRepository = carRepository;
             this.locationRepository = locationRepository;
-        }
-
-        public IEnumerable<T> All<T>(int page, int itemsPerPage = 10)
-        {
-            var cars = this.carRepository.AllAsNoTracking()
-                .OrderByDescending(x => x.Id)
-                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
-                .To<T>().ToList();
-
-            return cars;
         }
 
         public async Task CreateAsync(CreateCarInputModel input, string userId, string imagePath)
@@ -65,25 +54,28 @@
 
             car.Location = location;
 
-            Directory.CreateDirectory($"{imagePath}/cars/");
-            foreach (var image in input.Images)
+            if (input.Images != null)
             {
-                var extention = Path.GetExtension(image.FileName).TrimStart('.');
-                if (!this.allowedExtensions.Any(x => extention.EndsWith(x)))
+                Directory.CreateDirectory($"{imagePath}/cars/");
+                foreach (var image in input.Images)
                 {
-                    throw new Exception($"Invalid image extension {extention}");
+                    var extention = Path.GetExtension(image.FileName).TrimStart('.');
+                    if (!this.allowedExtensions.Any(x => extention.EndsWith(x)))
+                    {
+                        throw new Exception($"Invalid image extension {extention}");
+                    }
+
+                    var dbImage = new Image
+                    {
+                        AddedbyUserId = userId,
+                        Extention = extention,
+                    };
+                    car.Images.Add(dbImage);
+
+                    var physicalPath = $"{imagePath}/cars/{dbImage.Id}.{extention}";
+                    using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+                    await image.CopyToAsync(fileStream);
                 }
-
-                var dbImage = new Image
-                {
-                    AddedbyUserId = userId,
-                    Extention = extention,
-                };
-                car.Images.Add(dbImage);
-
-                var physicalPath = $"{imagePath}/cars/{dbImage.Id}.{extention}";
-                using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-                await image.CopyToAsync(fileStream);
             }
 
             await this.carRepository.AddAsync(car);
@@ -127,10 +119,21 @@
             await this.carRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetUserCars<T>(string username, int page, int itemsPerPage = 10)
+        public IEnumerable<T> GetUserCars<T>(string username, int page, int itemsPerPage = 6)
         {
-            var cars = this.carRepository.All()
+            var cars = this.carRepository.AllAsNoTracking()
                 .Where(x => x.AddedByUser.UserName == username)
+                .OrderByDescending(x => x.Id)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+                .To<T>().ToList();
+
+            return cars;
+        }
+
+        public IEnumerable<T> All<T>(int page, int itemsPerPage = 6)
+        {
+            var cars = this.carRepository.AllAsNoTracking()
+                .OrderByDescending(x => x.Id)
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
                 .To<T>().ToList();
 

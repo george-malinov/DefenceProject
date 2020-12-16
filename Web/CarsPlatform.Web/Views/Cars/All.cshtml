@@ -9,14 +9,14 @@
     <input class="form-control" name="Search" placeholder="Search by model.." style="margin-left:260px">
 </div>
 <hr style="background-color:aliceblue" />
-<div class="row">
+<div class="row" style="background-color:black;">
     @foreach (var car in this.Model.Cars)
     {
 
-        <div class="media col-md-4">
-            @if (car.ImageUrl == null)
+        <div class="media col-md-4" style="margin-top:10px">
+            @if (car.ImageUrl == "/images/cars/.")
             {
-                <img src="~/images/default-car.png" width="200" class="mr-3 img-responsive" />
+                <img src="~/images/default-car.jpg" width="200" class="mr-3 img-responsive" />
             }
             else
             {
@@ -32,4 +32,4 @@
     }
 </div>
 <hr style="background-color:aliceblue" />
-<partial name="_PagingPartial" model="@Model" />
+<partial name="_PagingPartialForAllCars" model="@Model" />

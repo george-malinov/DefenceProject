@@ -12,7 +12,7 @@
     using CarsPlatform.Services.Mapping;
     using CarsPlatform.Services.Messaging;
     using CarsPlatform.Web.ViewModels;
-
+    using Microsoft.AspNetCore.Authentication.Facebook;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -70,6 +70,12 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<ICarsService, CarsService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = this.configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = this.configuration["Authentication:Facebook:AppSecret"];
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

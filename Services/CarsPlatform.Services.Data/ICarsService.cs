@@ -7,7 +7,7 @@
 
     public interface ICarsService
     {
-        IEnumerable<T> All<T>(int page, int itemsPerPage = 10);
+        IEnumerable<T> All<T>(int page, int itemsPerPage = 6);
 
         int GetCount();
 
@@ -19,6 +19,6 @@
 
         Task EditCarAsync(int id, EditCarInputModel input);
 
-        IEnumerable<T> GetUserCars<T>(string username, int page, int itemsPerPage);
+        IEnumerable<T> GetUserCars<T>(string username, int page, int itemsPerPage = 6);
     }
 }
