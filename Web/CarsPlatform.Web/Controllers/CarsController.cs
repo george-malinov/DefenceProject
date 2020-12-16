@@ -140,5 +140,26 @@
             await this.carsService.EditCarAsync(id, input);
             return this.RedirectToAction(nameof(this.SingleCar), new { id });
         }
+
+        public IActionResult MyCars(int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int ItemsPerPage = 10;
+
+            var username = this.userManager.GetUserName(this.User);
+
+            var viewModel = new MyCarsViewModel
+            {
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                Cars = this.carsService.GetUserCars<CarsInListViewModel>(username, id, ItemsPerPage),
+            };
+
+            return this.View(viewModel);
+        }
     }
 }

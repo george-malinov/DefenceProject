@@ -5,6 +5,9 @@
 }
 
 <h1 class="text-center text-white">@this.ViewData["Title"]</h1>
+<div class="col-lg-6 col-md-8 mt-2">
+    <input class="form-control" name="Search" placeholder="Search by model.." style="margin-left:260px">
+</div>
 <hr style="background-color:aliceblue" />
 <div class="row">
     @foreach (var car in this.Model.Cars)

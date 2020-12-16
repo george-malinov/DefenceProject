@@ -8,12 +8,12 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <br />
-<div class="bg-transparent text-white w-50 col-md-4 offset-md-4">
-    <h2 class="text-center">
+<div class="border text-white col-md-4 offset-md-4">
+    <h2 class="text-center" style="font-size:28px">
         <a><span class="hours"></span></a> :
         <a><span class="min"></span></a> :
         <a><span class="sec"></span></a>
-        <a><span class="text-sm-center"> - @DateTime.UtcNow.Year year.</span></a>
+        <a><span class="text-sm-center"> - @DateTime.UtcNow.Date.ToShortDateString()</span></a>
     </h2>
 </div>
 <br />

@@ -50,7 +50,10 @@
 
     <footer class="border-top modal-footer text-white bg-transparent">
         <div class="container text-white">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a class="text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a class="btn btn-dark text-white border" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+            <a class="btn btn-dark text-white border" style="margin-right:20px" asp-area="" asp-controller="Home" asp-action="Contact">Contacts</a>
+
         </div>
     </footer>
 

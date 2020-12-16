@@ -10,6 +10,9 @@
         <li class="nav-item" style="margin-right:10px">
             <a class="btn btn-warning" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @(this.User.Identity.Name)!</a>
         </li>
+        <li class="nav-item" style="margin-right:10px">
+            <a class="btn btn-warning" asp-controller="Cars" asp-action="MyCars">My Cars</a>
+        </li>
         if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
         {
             <li class="nav-item">

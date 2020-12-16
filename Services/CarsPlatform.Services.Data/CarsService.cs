@@ -126,5 +126,15 @@
             car.CategoryId = input.CategoryId;
             await this.carRepository.SaveChangesAsync();
         }
+
+        public IEnumerable<T> GetUserCars<T>(string username, int page, int itemsPerPage = 10)
+        {
+            var cars = this.carRepository.All()
+                .Where(x => x.AddedByUser.UserName == username)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+                .To<T>().ToList();
+
+            return cars;
+        }
     }
 }

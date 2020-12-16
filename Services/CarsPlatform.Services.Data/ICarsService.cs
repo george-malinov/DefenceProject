@@ -18,5 +18,7 @@
         Task DeleteAsync(int id);
 
         Task EditCarAsync(int id, EditCarInputModel input);
+
+        IEnumerable<T> GetUserCars<T>(string username, int page, int itemsPerPage);
     }
 }
