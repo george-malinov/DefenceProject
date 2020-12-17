@@ -96,6 +96,11 @@
             return this.carRepository.All().Count();
         }
 
+        public int GetMyCount(string username)
+        {
+            return this.carRepository.All().Where(x => x.AddedByUser.UserName == username).Count();
+        }
+
         public async Task DeleteAsync(int id)
         {
             var car = this.carRepository.All().FirstOrDefault(x => x.Id == id);

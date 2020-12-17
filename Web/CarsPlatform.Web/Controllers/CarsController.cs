@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using CarsPlatform.Data.Common.Repositories;
@@ -136,7 +137,7 @@
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
-                CarsCount = this.carsService.GetCount(),
+                CarsCount = this.carsService.GetMyCount(username),
                 Cars = this.carsService.GetUserCars<MyCarsInListViewModel>(username, id, ItemsPerPage),
             };
 

@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
     using CarsPlatform.Web.ViewModels.Cars;
 
     public interface ICarsService
@@ -10,6 +9,8 @@
         IEnumerable<T> All<T>(int page, int itemsPerPage = 6);
 
         int GetCount();
+
+        int GetMyCount(string username);
 
         T GetCarById<T>(int id);
 
