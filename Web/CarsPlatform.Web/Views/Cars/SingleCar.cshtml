@@ -1,0 +1,109 @@
+﻿@model CarsPlatform.Web.ViewModels.Cars.SingleCarViewModel
+@{
+    this.ViewData["Title"] = "Car";
+    var count = 0;
+}
+
+<div>
+    <div class="row">
+        <div class="col-md-5 text-center">
+            <strong style="font-size:30px;color:yellow;">@Model.Model.ToUpper()</strong>
+            <br />
+            @if (Model.ImageUrls.Count() != 0)
+            {
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        @for (int i = 0; i < Model.ImageUrls.Count(); i++)
+                        {
+                            if (i == 0)
+                            {
+                                <li data-target="#carouselExampleIndicators" data-slide-to="@i" class="active"></li>
+                            }
+                            else
+                            {
+                                <li data-target="#carouselExampleIndicators" data-slide-to="@i"></li>
+                            }
+                        }
+                    </ol>
+                    <div class="carousel-inner">
+                        @foreach (var image in Model.ImageUrls)
+                        {
+                            if (count == 0)
+                            {
+                                <div class="carousel-item active text-center">
+                                    <img class="img-fluid" style="width:450px; height:300px" src="@image">
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="carousel-item text-center">
+                                    <img class="img-fluid" style="width:450px; height:300px" src="@image">
+                                </div>
+                            }
+                            count++;
+                        }
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            }
+            else
+            {
+                <img style="width:350px; height:200px" src="~/images/default-car.jpg" />
+                <br />
+            }
+            <br />
+            <ul class="col-xs-6 border border-white" style="width:350px; color:gold; background-color:lightslategray">
+                <li>Date of production - @Model.DateOfManufacture.ToShortDateString()</li>
+                <li>Engine type: @Model.EngineType .</li>
+                <li>Power: @Model.Power HP.</li>
+                <li>Transmition Type: @Model.TransmissionType .</li>
+                <li>Category: @Model.CategoryName .</li>
+                <li>Miles: @Model.Miles miles.</li>
+                <li>Color: @Model.Collor .</li>
+                <li>Prize: @Model.Prize BGN.</li>
+                <li>Location: @Model.LocationRegion - @Model.LocationTown</li>
+            </ul>
+        </div>
+        <div class="col-md-7">
+            <h4 style="background-color:lightslategray; color:gold">
+                Added By
+                <a class="text-white" href="/Identity/Account">@Model.AddedByUserEmail</a>
+            </h4>
+            <h4 style="background-color:lightslategray; color:gold">
+                Added On
+                <a>@Model.CreatedOn</a>
+            </h4>
+            <h3 class="text-center border-bottom" style="font-size:45px;color:yellow;">Aditional Information</h3>
+            <p class="text-white border border-white" style="font-size:25px; background-color:lightslategray">@Model.AditionalInformation</p>
+            <div class="text-center border text-white" style="background-color:lightslategray">
+                <h3>Seller's Information</h3>
+                <hr style="background-color:white   " />
+                <p>Seller's Name --> @Model.FullName</p>
+                <hr style="background-color:white" />
+                <p>Seller's Phone --> @Model.AddedByUserPhoneNumber</p>
+            </div>
+            <br />
+            
+            <br />
+        </div>
+    </div>
+    @if (Model.AddedByUserEmail == User.Identity.Name)
+    {
+        <a class="btn btn-warning col-md-12" asp-controller="Cars" asp-route-id="@Model.Id" asp-action="EditCar">Edit</a>
+        <br />
+        <br />
+        <form method="post" asp-action="DeleteCar" id="deleteForm" asp-route-id="@Model.Id">
+            <button class="btn btn-warning col-md-12">Delete</button>
+        </form>
+        <hr style="background-color:white" />
+    }
+
+    <a class="btn btn-warning col-md-12" asp-area="" asp-controller="Cars" asp-action="All">Back to list</a>
+</div>

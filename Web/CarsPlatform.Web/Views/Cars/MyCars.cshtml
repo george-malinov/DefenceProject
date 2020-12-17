@@ -1,27 +1,17 @@
-﻿@model CarsPlatform.Web.ViewModels.Cars.CarsListViewModel
+﻿@model CarsPlatform.Web.ViewModels.Cars.MyCarsViewModel
 
-@{
-    this.ViewData["Title"] = "All cars - " + @Model.CarsCount;
+@{     
+    this.ViewData["Title"] = "My cars - " + Model.CarsCount;
 }
 
 <h1 class="text-center text-white">@this.ViewData["Title"]</h1>
-<form method="get">
-    <div class="input-group col-md-6 offset-2">
-        <div class="form-text text-warning" style="margin-right:5px; background-color:transparent; font-size:20px">
-            Search by model ->
-        </div>
-        <input class="form-control" asp-for="SearchString"/>
-        <div class="input-group-append">
-            <button type="submit" class="btn btn-warning" style="margin-left:5px">Search</button>
-        </div>
-    </div>
-</form>
+
 <hr style="background-color:aliceblue" />
-<div class="row" style="background-color:black;">
+<div class="row" style="background-color:black">
     @foreach (var car in this.Model.Cars)
     {
 
-        <div class="media col-md-4" style="margin-top:10px">
+        <div class="media col-md-4" style="margin-top:10px;">
             @if (car.ImageUrl == "/images/cars/.")
             {
                 <img src="~/images/default-car.jpg" width="200" class="mr-3 img-responsive" />
@@ -38,6 +28,7 @@
             </div>
         </div>
     }
+    <a class="btn btn-warning col-md-12" asp-area="" asp-controller="Cars" asp-action="All">Back to list</a>
 </div>
 <hr style="background-color:aliceblue" />
-<partial name="_PagingPartialForAllCars" model="@Model" />
+<partial name="_PagingPartialForMyCars" model="@Model" />

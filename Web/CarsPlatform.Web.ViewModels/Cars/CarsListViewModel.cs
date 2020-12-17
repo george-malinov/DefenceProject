@@ -5,5 +5,7 @@
     public class CarsListViewModel : PagingViewModel
     {
         public IEnumerable<CarsInListViewModel> Cars { get; set; }
+
+        public string SearchString { get; set; }
     }
 }
