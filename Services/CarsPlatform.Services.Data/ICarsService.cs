@@ -22,5 +22,9 @@
         Task EditCarAsync(int id, EditCarInputModel input);
 
         IEnumerable<T> GetUserCars<T>(string username, int page, int itemsPerPage = 6);
+
+        IEnumerable<T> GetCarByModel<T>(string searchString, int page, int itemsPerPage = 6);
+
+        int GetResultSearchCount(string searchString);
     }
 }

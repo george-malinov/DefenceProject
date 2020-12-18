@@ -162,5 +162,27 @@
 
             return this.View(viewModel);
         }
+
+        public IActionResult SearchCars(CarsListViewModel model, int id = 1)
+        {
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int ItemsPerPage = 6;
+
+            var searchString = model.SearchString;
+            var viewModel = new CarsListViewModel
+            {
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                SearchString = model.SearchString,
+                CarsCount = this.carsService.GetResultSearchCount(searchString),
+                Cars = this.carsService.GetCarByModel<CarsInListViewModel>(searchString, id, ItemsPerPage),
+            };
+
+            return this.View(viewModel);
+        }
     }
 }

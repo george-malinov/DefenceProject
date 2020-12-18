@@ -6,7 +6,7 @@
 
 <div>
     <div class="row">
-        <div class="col-md-5 text-center">
+        <div class="col-md-4 text-center">
             <strong style="font-size:30px;color:yellow;">@Model.Model.ToUpper()</strong>
             <br />
             @if (Model.ImageUrls.Count() != 0)
@@ -59,22 +59,22 @@
                 <br />
             }
             <br />
-            <ul class="col-xs-6 border border-white" style="width:350px; color:gold; background-color:lightslategray">
-                <li>Date of production - @Model.DateOfManufacture.ToShortDateString()</li>
-                <li>Engine type: @Model.EngineType .</li>
-                <li>Power: @Model.Power HP.</li>
-                <li>Transmition Type: @Model.TransmissionType .</li>
-                <li>Category: @Model.CategoryName .</li>
-                <li>Miles: @Model.Miles miles.</li>
-                <li>Color: @Model.Collor .</li>
-                <li>Prize: @Model.Prize BGN.</li>
-                <li>Location: @Model.LocationRegion - @Model.LocationTown</li>
-            </ul>
+            <div class="col-md-10 border border-white text-white" style="width:350px; background-color:lightslategray">
+                <i>Date of production - @Model.DateOfManufacture.ToShortDateString()</i> <br />
+                <i>Engine type: @Model.EngineType .</i><br />
+                <i>Power: @Model.Power HP.</i><br />
+                <i>Transmition Type: @Model.TransmissionType .</i><br />
+                <i>Category: @Model.CategoryName .</i><br />
+                <i>Miles: @Model.Miles miles.</i><br />
+                <i>Color: @Model.Collor .</i><br />
+                <i>Prize: @Model.Prize BGN.</i><br />
+                <i>Location: @Model.LocationRegion - @Model.LocationTown</i>
+            </div>
         </div>
         <div class="col-md-7">
             <h4 style="background-color:lightslategray; color:gold">
                 Added By
-                <a class="text-white" href="/Identity/Account">@Model.AddedByUserEmail</a>
+                <a class="text-white">@Model.AddedByUserEmail</a>
             </h4>
             <h4 style="background-color:lightslategray; color:gold">
                 Added On
@@ -90,20 +90,23 @@
                 <p>Seller's Phone --> @Model.AddedByUserPhoneNumber</p>
             </div>
             <br />
-            
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <button class="btn btn-info col-md-12" onclick="window.print()">Print</button>
+            }
             <br />
         </div>
     </div>
     @if (Model.AddedByUserEmail == User.Identity.Name)
     {
+<br />
         <a class="btn btn-warning col-md-12" asp-controller="Cars" asp-route-id="@Model.Id" asp-action="EditCar">Edit</a>
         <br />
         <br />
         <form method="post" asp-action="DeleteCar" id="deleteForm" asp-route-id="@Model.Id">
             <button class="btn btn-warning col-md-12">Delete</button>
         </form>
-        <hr style="background-color:white" />
     }
-
+    <br />
     <a class="btn btn-warning col-md-12" asp-area="" asp-controller="Cars" asp-action="All">Back to list</a>
 </div>

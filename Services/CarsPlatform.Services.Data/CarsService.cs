@@ -128,7 +128,7 @@
         {
             var cars = this.carRepository.AllAsNoTracking()
                 .Where(x => x.AddedByUser.UserName == username)
-                .OrderByDescending(x => x.Id)
+                .OrderByDescending(x => x.CreatedOn)
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
                 .To<T>().ToList();
 
@@ -143,6 +143,22 @@
                 .To<T>().ToList();
 
             return cars;
+        }
+
+        public IEnumerable<T> GetCarByModel<T>(string searchString, int page, int itemsPerPage = 6)
+        {
+            var cars = this.carRepository.AllAsNoTracking()
+                .Where(x => x.Model.Contains(searchString))
+                .OrderByDescending(x => x.CreatedOn)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+                .To<T>().ToList();
+
+            return cars;
+        }
+
+        public int GetResultSearchCount(string searchString)
+        {
+            return this.carRepository.All().Where(x => x.Model.Contains(searchString)).Count();
         }
     }
 }

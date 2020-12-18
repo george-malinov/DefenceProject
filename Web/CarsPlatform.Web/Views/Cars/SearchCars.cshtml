@@ -1,20 +1,11 @@
 ﻿@model CarsPlatform.Web.ViewModels.Cars.CarsListViewModel
 
 @{
-    this.ViewData["Title"] = "All cars - " + @Model.CarsCount;
+    this.ViewData["Title"] = $"Result for " + @Model.SearchString + " - " + @Model.CarsCount;
 }
 
 <h1 class="text-center text-white">@this.ViewData["Title"]</h1>
-<form method="get">
-    <div class="input-group col-md-6 offset-2">
-        <div class="form-text text-warning" style="margin-right:5px; background-color:transparent; font-size:20px">
-            Search by model ->
-        </div>
-        <input class="form-control" asp-for="SearchString"/>
-        <div class="input-group-append">
-            <button type="submit" class="btn btn-warning" style="margin-left:5px" asp-controller="Cars" asp-action="SearchCars">Search</button>
-        </div>
-    </div>
+<form method="get">   
 </form>
 <hr style="background-color:aliceblue" />
 <div class="row" style="background-color:black;">
@@ -39,5 +30,7 @@
         </div>
     }
 </div>
+<br />
+    <a class="btn btn-warning col-md-12" asp-area="" asp-controller="Cars" asp-action="All">Back to list</a>
 <hr style="background-color:aliceblue" />
-<partial name="_PagingPartialForAllCars" model="@Model" />
+<partial name="_PagingPartialForResult" model="@Model" />

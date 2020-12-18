@@ -34,6 +34,12 @@
 
         public DbSet<Location> Locations { get; set; }
 
+        public DbSet<ForumCategory> ForumCategories { get; set; }
+
+        public DbSet<ForumPost> ForumPosts { get; set; }
+
+        public DbSet<ForumComment> ForumComments { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
