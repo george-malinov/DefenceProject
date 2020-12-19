@@ -8,7 +8,7 @@
 
         public virtual ForumPost ForumPost { get; set; }
 
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         public virtual ForumComment Parent { get; set; }
 

@@ -70,6 +70,9 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<ICarsService, CarsService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IForumCategoriesService, ForumCategoriesService>();
+            services.AddTransient<IForumPostsService, ForumPostsService>();
+            services.AddTransient<IForumCommendsService, ForumCommentsService>();
 
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {

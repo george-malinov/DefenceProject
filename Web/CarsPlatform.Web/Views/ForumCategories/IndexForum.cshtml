@@ -1,0 +1,28 @@
+﻿@model CarsPlatform.Web.ViewModels.ForumCategories.IndexViewModel
+@{ this.ViewData["Title"] = "Thank you for visiting our forum!"; }
+
+<div class="text-center">
+    <h1 class="display-4 text-white">@this.ViewData["Title"]</h1>    
+</div>
+<hr style="background-color:white"/>
+<div class="row">
+    @foreach (var category in Model.ForumCategories)
+    {
+<div class="col-md-4 media">
+    <img src="@category.ImageUrl" width="100" height="70" class="mr-3" alt="@category.Title">
+    <div class="media-body">
+        <h5 class="mt-0">
+            <a class="btn btn-info" asp-action="GetForumCategoryByTitle" asp-route-title="@category.Title">
+                @category.Title (@category.ForumPostsCount)
+            </a>
+        </h5>
+        <i class="text-white" style="background-color:black"> @category.Description</i>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+    }
+    <a asp-controller="ForumPosts" asp-action="CreatePost" class="btn btn-warning col-md-2 offset-5">Create post</a>
+</div>

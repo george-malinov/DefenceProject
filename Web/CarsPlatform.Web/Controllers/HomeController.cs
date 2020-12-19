@@ -3,7 +3,6 @@
     using System.Diagnostics;
 
     using CarsPlatform.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController

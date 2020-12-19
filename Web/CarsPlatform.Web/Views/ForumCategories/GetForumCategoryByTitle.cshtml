@@ -1,0 +1,77 @@
+﻿@model CarsPlatform.Web.ViewModels.ForumCategories.ForumCategoryViewModel
+@{ 
+    this.ViewData["Title"] = Model.Title; 
+}
+
+<h1 class="display-3 text-center text-white">@Model.Title</h1>
+<hr style="background-color:white" />
+<div class="alert alert-info col-md-4 offset-4 text-center">
+    @Model.Description
+</div>
+
+@foreach (var post in Model.ForumPosts)
+{
+<div class="media-body border" style="background-color:white">
+    <h4 class="media-heading btn btn-info col-md-4 offset-4"><a class="text-white" asp-controller="ForumPosts" asp-action="GetPostById" asp-route-id="@post.Id">@post.Title</a></h4>
+    <p class="form-control">@post.ShortContent</p>
+    <ul class="list-inline list-unstyled text-right text-center form-control">
+        <li class="list-inline-item">
+            <i class="fas fa-user-edit"></i>Added by: @post.UserUserName
+        </li>
+        <li class="list-inline-item">
+            <i class="fas fa-calendar-alt"></i>On: @post.CreatedOn
+        </li>
+        <li class="list-inline-item">
+            <i class="fas fa-comment-dots"></i>This post have @post.ForumCommentsCount comments so far!
+        </li>
+    </ul>
+</div>
+<br />
+}
+
+<nav>
+    <ul class="pagination justify-content-center">
+        @if (this.Model.CurrentPage == 1)
+        {
+<li class="page-item disabled">
+    <a class="page-link" href="#">Previous</a>
+</li>
+ }
+else
+{
+<li class="page-item">
+    <a class="page-link"
+       asp-route="forumCategory"
+       asp-route-name="@this.Model.Title"
+       asp-route-page="@(this.Model.CurrentPage - 1)">Previous</a>
+</li>
+}
+
+        @for (int i = 1; i <= this.Model.PagesCount; i++)
+        {
+            var active = i == this.Model.CurrentPage ? "active" : string.Empty;
+<li class="page-item @active">
+    <a class="page-link"
+       asp-route="forumCategory"
+       asp-route-name="@this.Model.Title"
+       asp-route-page="@i">@i</a>
+</li>
+}
+
+        @if (this.Model.CurrentPage == this.Model.PagesCount)
+        {
+<li class="page-item disabled">
+    <a class="page-link" href="#">Next</a>
+</li>
+ }
+else
+{
+<li class="page-item">
+    <a class="page-link"
+       asp-route="forumCategory"
+       asp-route-name="@this.Model.Title"
+       asp-route-page="@(this.Model.CurrentPage + 1)">Next</a>
+</li>
+}
+    </ul>
+</nav>

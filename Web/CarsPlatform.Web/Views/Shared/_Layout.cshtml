@@ -31,9 +31,13 @@
                         </li>
                         @if (this.User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin-right:10px">
                                 <a class="btn btn-warning" asp-area="" asp-controller="Cars" asp-action="CreateCar">Add new car</a>
-                            </li>                           
+                            </li>        
+                            
+                            <li class="nav-item">
+                                <a class="btn btn-warning" asp-area="" asp-controller="ForumCategories" asp-action="IndexForum">Forum</a>
+                            </li>  
                         }
                     </ul>
                 </div>
