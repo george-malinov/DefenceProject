@@ -6,6 +6,7 @@
     using CarsPlatform.Data.Models;
     using CarsPlatform.Data.Models.Enums;
     using CarsPlatform.Services.Mapping;
+    using Ganss.XSS;
 
     public class SingleCarViewModel : IMapFrom<Car>
     {
@@ -52,6 +53,8 @@
         public string AddedByUserPhoneNumber { get; set; }
 
         public string AditionalInformation { get; set; }
+
+        public string SanitizedInfo => new HtmlSanitizer().Sanitize(this.AditionalInformation);
 
         public ICollection<string> ImageUrls { get; set; }
     }

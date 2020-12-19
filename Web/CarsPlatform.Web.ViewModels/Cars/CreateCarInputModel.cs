@@ -5,6 +5,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using CarsPlatform.Data.Models.Enums;
+    using Ganss.XSS;
     using Microsoft.AspNetCore.Http;
 
     public class CreateCarInputModel
@@ -21,12 +22,13 @@
         public int Prize { get; set; }
 
         [Range(40, 1500)]
-        [Display(Name ="Horse power of the car")]
+        [Display(Name = "Horse power of the car")]
         public int Power { get; set; }
 
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
+        [Range(0, 500000)]
         public int Miles { get; set; }
 
         [Required]
@@ -40,7 +42,7 @@
 
         public CarLocationViewModel Location { get; set; }
 
-        [Display(Name ="Engine Type")]
+        [Display(Name = "Engine Type")]
         public EngineType EngineTypes { get; set; }
 
         [Display(Name = "Transmission Type")]
