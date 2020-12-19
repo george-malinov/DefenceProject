@@ -1,7 +1,5 @@
 ﻿@model CarsPlatform.Web.ViewModels.ForumCategories.ForumCategoryViewModel
-@{ 
-    this.ViewData["Title"] = Model.Title; 
-}
+@{ this.ViewData["Title"] = Model.Title; }
 
 <h1 class="display-3 text-center text-white">@Model.Title</h1>
 <hr style="background-color:white" />
@@ -26,8 +24,8 @@
         </li>
     </ul>
 </div>
-<br />
-}
+                <br />}
+
 
 <nav>
     <ul class="pagination justify-content-center">
@@ -75,3 +73,4 @@ else
 }
     </ul>
 </nav>
+<a class="btn btn-warning col-md-4 offset-4" asp-controller="ForumCategories" asp-action="IndexForum">Back to Forum</a>
